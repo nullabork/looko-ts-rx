@@ -6,7 +6,7 @@ const alias = require('./aliases.config.js'),
 
 module.exports = {
     entry: {
-        app: ['./src/index.tsx'],
+        app: ['./src/index.tsx', './src/sass/main.scss'],
         vendor: ['react', 'react-dom']
     },
     devServer: {
@@ -32,13 +32,26 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                  use: [{
-                    loader: "style-loader"
-                  }, {
-                    loader: "css-loader" 
-                  }, {
-                    loader: "sass-loader"
-                  }]
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'css/[name].blocks.css',
+                        }
+                    },
+                    {
+						loader: 'extract-loader'
+					},
+                    {
+                        loader: "css-loader?-url" 
+                    },
+                    {
+						loader: 'postcss-loader'
+					},
+                    {
+                        loader: "sass-loader"
+                    }
+                ]
             },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]

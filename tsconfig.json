@@ -11,6 +11,7 @@
       "sourceMap": true,
       "target": "es6",
       "moduleResolution": "node",
+      "experimentalDecorators": true,
       "baseUrl": "src",
       "typeRoots": [
         "node_modules/@types/",
@@ -19,12 +20,15 @@
       "paths": {
         // "@Models/*": ["app/models/*"],
         // "@Interfaces/*": ["app/interfaces/*"],
-        // "@Containers/*": ["app/containers/*"],
+        "@reducers/*": ["./reducers/*"],
+        "@actions/*": ["./actions/*"],
+        "@store/*": ["./store/*"], 
+        "@containers/*": ["./containers/*"],
         // "@Types/*": ["app/types/*"],
         // "@Store/*": ["app/store/*"],
         // "@Sass/*": ["app/sass/*"],
         // "@Config/*": ["app/config/*"],
-        // "@Components/*": ["app/components/*"],
+        "@components/*": ["./components/*"],
         // "@Context/*": ["app/context/*"],
       }
   },

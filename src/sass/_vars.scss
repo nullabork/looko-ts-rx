@@ -1,0 +1,91 @@
+:root {
+  
+  /*
+   --hue: 288;
+   --sat: 81%;
+   --light: 12%;   
+   */
+   
+   --hue: 150;
+   --sat: 91%;
+   --light: 22%;  
+ 
+   --splitter: 40;
+   --shader: 15%;
+ 
+   --hueNext: calc(var(--hue) + 30);
+   --huePrev: calc(var(--hue) - 30);
+   --hueComp: calc(var(--hue) + 180);
+   --hueTriad1: calc(var(--hue) + 120);
+   --hueTriad2: calc(var(--hue) + 120 + 120);
+   --hueTet1: calc(var(--hue) + 90);
+   --hueTet2: calc(var(--hue) + 90 + 90);
+   --hueTet3: calc(var(--hue) + 90 + 90 + 90);  
+   --hueSplitComp1: calc(var(--hueComp) + var(--splitter));
+   --hueSplitComp2: calc(var(--hueComp) - var(--splitter));
+     
+    
+   --satDarker: calc(var(--sat) + var(--shader));
+   --satLighter: calc(var(--sat) - var(--shader));  
+ 
+ 
+   --lightDarker: calc(var(--light) - var(--shader));
+   --lightLighter: calc(var(--light) + var(--shader));  
+ 
+   --mainColorLow: hsl(var(--hue), calc(var(--sat) * 0.3),               calc(var(--light) * 0.3));
+   --mainColorDarkerLow: hsl(var(--hue),  calc(var(--satDarker) * 0.3),  calc(var(--lightDarker) * 0.3));
+   --mainColorLighterLow: hsl(var(--hue), calc(var(--satLighter) * 0.3), calc(var(--lightLighter) * 0.3));
+ 
+   --mainColor: hsl(var(--hue), var(--sat), var(--light));
+   --mainColorDarker: hsl(var(--hue), var(--satDarker), var(--lightDarker));
+   --mainColorLighter: hsl(var(--hue), var(--satLighter), var(--lightLighter));
+   
+   --nextColor: hsl(var(--hueNext), var(--sat), var(--light));
+   --nextColorDarker: hsl(var(--hueNext), var(--satDarker), var(--lightDarker));
+   --nextColorLighter: hsl(var(--hueNext), var(--satLighter), var(--lightLighter));
+   
+   --nextColorLow: hsl(var(--hueNext), calc(var(--sat) * 0.2),               calc(var(--light) * 0.3));
+   --nextColorDarkerLow: hsl(var(--hueNext), calc(var(--satDarker) * 0.2),   calc(var(--lightDarker) * 0.3));
+   --nextColorLighterLow: hsl(var(--hueNext), calc(var(--satLighter) * 0.2), calc(var(--lightLighter) * 0.3));
+   
+   
+   --prevColor: hsl(var(--huePrev), var(--sat), var(--light));
+   --prevColorDarker: hsl(var(--huePrev), var(--satDarker), var(--lightDarker));
+   --prevColorLighter: hsl(var(--huePrev), var(--satLighter), var(--lightLighter));    
+ 
+ /* calculate complementary color and its lighter & darker variations */  
+   --compColor: hsl(var(--hueComp), var(--sat), var(--light));
+   --compColorDarker: hsl(var(--hueComp), var(--satDarker), var(--lightDarker));
+   --compColorLighter: hsl(var(--hueComp), var(--satLighter), var(--lightLighter));  
+ 
+   --analgColor1: var(--nextColor);
+   --analgColor1Darker: var(--nextColorDarker);
+   --analgColor1Lighter: var(--nextColorLighter);
+   --analgColor2: var(--prevColor);
+   --analgColor2Darker: var(--prevColorDarker);
+   --analgColor2Lighter: var(--prevColorLighter);
+ 
+   --triadColor1: hsl(var(--hueTriad1), var(--sat), var(--light));
+   --triadColor1Darker: hsl(var(--hueTriad1), var(--satDarker), var(--lightDarker));
+   --triadColor1Lighter: hsl(var(--hueTriad1), var(--satLighter), var(--lightLighter));  
+   --triadColor2: hsl(var(--hueTriad2), var(--sat), var(--light));
+   --triadColor2Darker: hsl(var(--hueTriad2), var(--satDarker), var(--lightDarker));
+   --triadColor2Lighter: hsl(var(--hueTriad2), var(--satLighter), var(--lightLighter));  
+ 
+   --tetColor1: hsl(var(--hueTet1), var(--sat), var(--light));
+   --tetColor1Darker: hsl(var(--hueTet1), var(--satDarker), var(--lightDarker));
+   --tetColor1Lighter: hsl(var(--hueTet1), var(--satLighter), var(--lightLighter));  
+   --tetColor2: hsl(var(--hueTet2), var(--sat), var(--light));
+   --tetColor2Darker: hsl(var(--hueTet2), var(--satDarker), var(--lightDarker));
+   --tetColor2Lighter: hsl(var(--hueTet2), var(--satLighter), var(--lightLighter));    
+   --tetColor3: hsl(var(--hueTet3), var(--sat), var(--light));
+   --tetColor3Darker: hsl(var(--hueTet3), var(--satDarker), var(--lightDarker));
+   --tetColor3Lighter: hsl(var(--hueTet3), var(--satLighter), var(--lightLighter));  
+ 
+   --splitCompColor1: hsl(var(--hueSplitComp1), var(--sat), var(--light));
+   --splitCompColor1Darker: hsl(var(--hueSplitComp1), var(--satDarker), var(--lightDarker));
+   --splitCompColor1Lighter: hsl(var(--hueSplitComp1), var(--satLighter), var(--lightLighter));  
+   --splitCompColor2: hsl(var(--hueSplitComp2), var(--sat), var(--light));
+   --splitCompColor2Darker: hsl(var(--hueSplitComp2), var(--satDarker), var(--lightDarker));
+   --splitCompColor2Lighter: hsl(var(--hueSplitComp2), var(--satLighter), var(--lightLighter));  
+ }
