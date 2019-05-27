@@ -21,9 +21,9 @@ export enum UIThemes {
 export interface IPanel {
   width? :string,
   featured? : boolean,
-  minimized? : boolean,
-  type? : UIPanelType,
-  theme? : UIThemes
+  collapsed? : boolean,
+  theme? : UIThemes,
+  type? : UIPanelType  
 }
 
 // Define the Character type

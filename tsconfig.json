@@ -18,18 +18,16 @@
         "types"
       ],
       "paths": {
-        // "@Models/*": ["app/models/*"],
-        // "@Interfaces/*": ["app/interfaces/*"],
+        "@components/*": ["./app/components/*"],
+        "@containers/*": ["./app/containers/*"],
         "@reducers/*": ["./reducers/*"],
         "@actions/*": ["./actions/*"],
-        "@store/*": ["./store/*"], 
-        "@containers/*": ["./containers/*"],
+        "@store/*": ["./store/*"],
+        "@conf/*": ["./conf/*"],
         // "@Types/*": ["app/types/*"],
         // "@Store/*": ["app/store/*"],
         // "@Sass/*": ["app/sass/*"],
-        // "@Config/*": ["app/config/*"],
-        "@components/*": ["./components/*"],
-        // "@Context/*": ["app/context/*"],
+        // "@Config/*": ["app/config/*"]       
       }
   },
   "include": [

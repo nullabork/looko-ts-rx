@@ -6,16 +6,19 @@ const alias = require('./aliases.config.js'),
 
 module.exports = {
     entry: {
-        app: ['./src/index.tsx', './src/sass/main.scss'],
+        app: ['./src/app/index.tsx', './src/app/sass/main.scss'],
         vendor: ['react', 'react-dom']
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
+        publicPath: '/',
+        historyApiFallback: true,
         compress: true,
         port: 9421
     },
     output: {
         path: path.resolve(__dirname, 'public'),
+        publicPath: "/", // string
         filename: 'js/[name].bundle.js',
     },
     resolve: {
@@ -57,11 +60,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
+        new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'app', 'index.html') }),
         new CopyWebpackPlugin([
             { from: './node_modules/react-dom/umd/react-dom.development.js', to: 'js' },
             { from: './node_modules/react/umd/react.development.js' , to: 'js'},
-            { from: './src/static' }
+            { from: './src/app/static' }
         ]),
         new webpack.HotModuleReplacementPlugin()
     ],
@@ -73,6 +76,6 @@ module.exports = {
     },
     externals: {
         "react": "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM"        
     }
 }
