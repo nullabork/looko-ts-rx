@@ -56,7 +56,6 @@ export class AccessKeyStore {
     @action
     public addAccessKey( accessKey: AccessKey) {
 
-        let { workspaceMap } =  stores.workspaceStore;
         let { accesskeyMap } = this;
 
         accesskeyMap.set(accessKey.Id, accessKey);
@@ -70,10 +69,7 @@ export class AccessKeyStore {
         accessKey.Workspace = workspace.WorkspaceId;
 
         //we need some workspaces in out workspaces
-        workspaceMap.set(
-            workspace.WorkspaceId,
-            workspace 
-        );
+        stores.workspaceStore.addWorkspace(workspace);
         
         //woah our access keys that workspaces also .... have acess keys
         if(!workspace.AccessKeys || !workspace.AccessKeys.length) return;

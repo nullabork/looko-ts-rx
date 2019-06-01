@@ -6,8 +6,10 @@ import { UserInterfaceStore, Scheme } from '@store/UserInterfaceStore';
 import { stores } from '@store/index';
 
 import { PanelPane } from '@components/PanelPane';
-import { AccountPanel } from '@components/Panel';
+import { AccountPanel, PanelContent } from '@components/Panel';
 import { AccountList } from '@components/AccountList';
+import { Panel } from '../../components/Panel/Panel';
+import { PanelHeader } from '@components/Panel/PanelHeader';
 
 
 interface IDashboardProps {
@@ -30,11 +32,16 @@ export class Dashboard extends Component<IDashboardProps> {
     return (
       <PanelPane scheme={Scheme.DARK}>
         <AccountPanel>
-        <>
-          asd
           <AccountList />
-        </>
         </AccountPanel>
+        <Panel featured={true}>
+          <PanelHeader
+            title='NugWatch'
+            subTitle='Results' />
+          <PanelContent>
+          
+          </PanelContent>
+        </Panel>
       </PanelPane>
     );
   }

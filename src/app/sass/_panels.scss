@@ -1,0 +1,176 @@
+:root {
+  --padding-s: 5px;
+  --padding-m: 10px;
+  --padding-l: 20px;
+  
+  --border-s: 1px;
+  --border-m: 2px;
+  --border-l: 5px;
+  
+  --panel-height: 100vh;
+  --panel-collapse-width: 50px;
+  
+  --action-btn-width: 32px;
+  --action-btn-height: 32px;
+}
+
+body{
+  padding:0;
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+h1,h2,h3,h4,h5 {
+  padding:0;
+  margin:0;
+}
+
+.c-horizontal-panels {
+  display:flex;
+	flex-direction: row;
+  overflow: hidden;
+  
+  .c-panel {
+    height:var(--panel-height);
+    border-left:var(--border-s) solid black;
+    flex-direction: column;
+    display:flex;
+    background-color: var(--Panel);
+    color: var(--PanelInverse);
+
+    .c-panel__header {
+      padding: var(--padding-m);
+      border-bottom:var(--border-s) solid black;
+    }
+    
+    .c-panel__content {
+      overflow-y:auto; 
+      overflow-y:auto; 
+      flex:1;
+      .c-panel__content-inner {
+        padding: var(--padding-m);
+      }
+    }
+    
+    .c-panel__footer {
+      border-top: var(--border-s) solid black;
+      padding: var(--padding-m);
+    }
+  }
+    
+  &.c-horizontal-panels--featured {
+    .c-panel { 
+      &.c-panel--featured {
+        flex:1;
+        background-color: var(--PanelFeatured);
+      }
+
+      &.c-panel--collapse {
+        width: var(--panel-collapse-width);
+      }
+    }
+  }
+}
+
+.c-content-row {
+  height:50px;
+  
+  &.c-content-row--short {
+    width:200px;
+  }
+}
+
+
+
+.c-hamburger-check {
+  display:none;
+}
+
+.c-hamburger-check:checked ~ .u-burger-shower {
+  display:initial;
+}
+
+.c-hamburger-menu {
+  display:none;
+  width: 3.4em;
+  height: 2.4em;
+  line-height: .1em;
+  border: .1em solid #ddd;
+  padding: 0 .4em .4em;
+
+  &hr {
+    color: #ddd;
+    height: .1em;
+    border: 0;
+    background: #ddd;
+  }
+}
+
+.c-actions {
+  margin-top: var(--padding-m);
+ 
+  .c-actions__list {
+    display:flex;
+    flex-direction: row;
+
+    .c-actions_btn {
+      display:flex;
+      width: var(--action-btn-width);
+      height: var(--action-btn-height);
+      border: var(--border-s) solid black;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media all and (max-width: 1199px) { 
+
+} 
+
+@media all and (max-width: 991px) { 
+  
+}
+
+@media all and (max-width: 768px) {
+  .c-horizontal-panels {
+    
+      
+    .c-panel {
+      display :none;
+      &.c-panel--featured {
+        display :flex;
+        flex:1;
+      }
+
+      &.c-panel--collapse {
+        // display :flex;
+      }
+    }
+  }
+  
+  .c-actions {
+    .c-actions__list {
+      .c-actions_btn {
+
+      }
+    }
+  }
+  
+  .c-hamburger-menu {
+    display:block;
+  }
+  
+  /* Burger stuff */
+  .u-burger-shower {
+     display:none;
+  }
+  
+} 
+
+@media all and (max-width: 575px) { 
+
+}

@@ -11,7 +11,7 @@ module.exports = {
   "@containers": path.resolve(__dirname, 'src/app/containers'),
   // "@Types": path.resolve(__dirname, 'src/app/types'),
   // "@Store": path.resolve(__dirname, 'src/app/store'),
-  // "@Sass": path.resolve(__dirname, 'src/app/sass'),
+  "@sass": path.resolve(__dirname, 'src/app/sass'),
   "@conf": path.resolve(__dirname, './src/conf'),
   "@components": path.resolve(__dirname, 'src/app/components'),
   // "@Context": path.resolve(__dirname, 'src/app/context')

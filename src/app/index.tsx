@@ -6,6 +6,8 @@ import { stores } from '@store/index';
 import { Dashboard } from '@containers/Dashboard';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 
+import "@sass/main.scss"
+
 const Root: React.SFC = props => {
   return (
     <Provider {...stores}>

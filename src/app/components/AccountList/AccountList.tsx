@@ -19,21 +19,18 @@ interface IAccountProps {
 }
 
 @inject(
-  'userInterfaceStore',
   'workspaceStore'  
 )
 @observer
 export class AccountList extends Component<IAccountProps> {
   render() {
-
-    const { workspaceMap } = this.props.workspaceStore!;
-
+    let { workspaceMap } = this.props.workspaceStore;
     return (
       <>
         {
-          this.props.workspaceStore.workspaceMap.forEach( (v:Workspace, k:string) => (
+          [...workspaceMap.values()].map((v) => (
             <div key={v.WorkspaceId}>
-              { v.Name }
+              <div className="c-content-row c-content-row--short">{ v.Name }</div>
             </div>  
           ))
         }

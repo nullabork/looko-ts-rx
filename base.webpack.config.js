@@ -2,24 +2,25 @@ const alias = require('./aliases.config.js'),
     path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CopyWebpackPlugin = require('copy-webpack-plugin');
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        app: ['./src/app/index.tsx', './src/app/sass/main.scss'],
-        vendor: ['react', 'react-dom']
+        app: ['./src/app/index.tsx'],
+        vendor: ['react', 'react-dom'],
+        // publicPath : '/'
     },
     devServer: {
         contentBase: path.join(__dirname, 'public'),
-        publicPath: '/',
         historyApiFallback: true,
         compress: true,
         port: 9421
     },
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'public/assets'),
         publicPath: "/", // string
-        filename: 'js/[name].bundle.js',
+        filename: 'assets/[name].bundle.js'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
@@ -35,37 +36,32 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'css/[name].blocks.css',
-                        }
-                    },
-                    {
-						loader: 'extract-loader'
-					},
-                    {
-                        loader: "css-loader?-url" 
-                    },
-                    {
-						loader: 'postcss-loader'
-					},
-                    {
-                        loader: "sass-loader"
-                    }
-                ]
+                use: [{
+                    loader: "style-loader"
+                  }, {
+                    loader: "css-loader" 
+                  }, {
+                    loader: "sass-loader"
+                  }]
             },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'app', 'index.html') }),
-        new CopyWebpackPlugin([
-            { from: './node_modules/react-dom/umd/react-dom.development.js', to: 'js' },
-            { from: './node_modules/react/umd/react.development.js' , to: 'js'},
+        
+        new CopyWebpackPlugin ([
+            { from: './node_modules/react-dom/umd/react-dom.development.js', to: 'assets' },
+            { from: './node_modules/react/umd/react.development.js' , to: 'assets'},
             { from: './src/app/static' }
         ]),
+
+        // new MiniCssExtractPlugin({
+        //     // Options similar to the same options in webpackOptions.output
+        //     // both options are optional
+        //     filename: '/assets/main.css',
+        //     publicPath: '/'
+        // }),
         new webpack.HotModuleReplacementPlugin()
     ],
     node: {

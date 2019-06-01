@@ -4,6 +4,7 @@ import axios, {AxiosResponse} from 'axios';
 import { AccountResponse } from './AccountStore';
 import { stores } from './index';
 import { AccessKey } from '@store/AccessKeyStore';
+import { Observer } from 'mobx-react';
 
 export interface Workspace {
     WorkspaceId?: string;
@@ -19,15 +20,19 @@ export interface Workspace {
     [propName: string]: any;
 }
 
-export interface WorkspaceData extends AccessKey {
-    AccessKeys : AccessKey[]
-}
-
 export class WorkspaceStore {
     workspaceMap = observable.map<string, Workspace>({});
+    @observable thing: string = "aaaaaa";
+
+    @action.bound
+    public addWorkspace(workspace:Workspace) {
+        this.thing = "bbbbbb";
+        this.workspaceMap.set(workspace.WorkspaceId, workspace);
+    }
+
 
     @computed
-    public get workspaces() : ObservableMap<string, Workspace> {
-        return computed( () => this.workspaceMap ) as any as ObservableMap<string, Workspace>;
+    public get workspaces() {
+        return this.workspaceMap;
     }
 }
