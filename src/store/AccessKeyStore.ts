@@ -39,6 +39,11 @@ export class AccessKeyStore {
         return computed( () => ids.map( id => this.accesskeyMap.get(id)));
     }
 
+    @computed
+    public getWorkspace(id : string) {
+        return stores.workspaceStore.workspaceMap.get(id);
+    }
+
     @action
     public addAccessKeys( AccessKeys: AccessKey[]) {
         let { workspaceMap } =  stores.workspaceStore;

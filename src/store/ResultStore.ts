@@ -44,6 +44,10 @@ export class ResultStore {
         query : ""
     };
 
+    constructor ( accessKeyID? : string ){
+        this.setAccessKey(accessKeyID);
+    }
+
     resultMap = observable.map<string, Result>({});
     @observable accessKeyID : string = null;
     @observable pager : Pager = {

@@ -22,14 +22,11 @@ export interface Workspace {
 
 export class WorkspaceStore {
     workspaceMap = observable.map<string, Workspace>({});
-    @observable thing: string = "aaaaaa";
 
     @action.bound
     public addWorkspace(workspace:Workspace) {
-        this.thing = "bbbbbb";
         this.workspaceMap.set(workspace.WorkspaceId, workspace);
     }
-
 
     @computed
     public get workspaces() {
