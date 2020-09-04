@@ -37,7 +37,7 @@
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.4",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "react-router-dom": "^5.0.0",
     "sass-loader": "^7.1.0",
